@@ -10,7 +10,7 @@ from email.message import EmailMessage
 
 #Variables
 cpu_alert = 80
-mem_alert = 20
+disk_alert = 80
 
 
 def send_report(subject):
@@ -28,5 +28,18 @@ if psutil.cpu_percent() > cpu_alert:
     print(time.strftime("%c") + ' - CPU ALERT!!! - CPU Usage is currently above %s percent' % cpu_alert)
     subject = 'Error - CPU usage is over 80%'
     send_report(subject)
+print(psutil.)
 
+#Memeory check
+print(psutil.virtual_memory().percent)
+if psutil.virtual_memory().percent > disk_alert:
+    print('time.strftime("%c'+ ' - MEMORY ALERT !!! - Memory is currently above %S percent' % mem_alert)
+    subject = 'Error -Memory usage is over 20'
 
+#Disk space check
+if psutil.disk_usage('/').percent > disk_alert:
+    print(psutil.disk_usage())
+    print(time.strftime('%c') + ' - DISK SPACE ALERT - Disk usage is over 20%')
+    Subject ='Error -Avaliable Disk Space is below 20%'
+    send_report(subject)
+    
